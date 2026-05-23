@@ -1,69 +1,35 @@
 'use client'
 
-import { useState, useCallback } from 'react'
-import { Header, useScrolled } from '@/components/header'
-import { LandingPage } from '@/components/landing-page'
-import { ResultsPage } from '@/components/results-page'
-import { getVibeData, getRandomVibe, VibeData } from '@/lib/mock-data'
+import { SearchBar } from '@/components/search-bar'
+import { TrendingTags } from '@/components/trending-tags'
+import { trendingTags } from '@/lib/mock-data'
 
-export function Home() {
-  const [view, setView] = useState<'landing' | 'results'>('landing')
-  const [vibeData, setVibeData] = useState<VibeData | null>(null)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const isScrolled = useScrolled()
+interface LandingPageProps {
+  onSearch: (query: string) => void
+}
 
-  const handleSearch = useCallback((query: string) => {
-    setIsTransitioning(true)
-    
-    // Small delay for smooth transition
-    setTimeout(() => {
-      const data = getVibeData(query)
-      setVibeData(data)
-      setView('results')
-      setIsTransitioning(false)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 200)
-  }, [])
-
-  const handleRandomVibe = useCallback(() => {
-    setIsTransitioning(true)
-    
-    setTimeout(() => {
-      const data = getRandomVibe()
-      setVibeData(data)
-      setView('results')
-      setIsTransitioning(false)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 200)
-  }, [])
-
-  const handleVibeClick = useCallback((vibe: string) => {
-    handleSearch(vibe)
-  }, [handleSearch])
-
-  const handleLogoClick = useCallback(() => {
-    setIsTransitioning(true)
-    
-    setTimeout(() => {
-      setView('landing')
-      setVibeData(null)
-      setIsTransitioning(false)
-    }, 200)
-  }, [])
-
+export function LandingPage({ onSearch }: LandingPageProps) {
   return (
-    <div className={`min-h-screen bg-[#0A0A0A] transition-opacity duration-400 ${isTransitioning ? 'opacity-50' : 'opacity-100'}`}>
-      <Header 
-        isScrolled={isScrolled || view === 'results'} 
-        onRandomVibe={handleRandomVibe}
-        onLogoClick={handleLogoClick}
+    <main className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
+      {/* Gradient orb */}
+      <div 
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[150px] pointer-events-none"
+        style={{ 
+          background: 'radial-gradient(circle, #1a0533 0%, transparent 70%)',
+          opacity: 0.6,
+          transform: 'translate(-30%, 30%)'
+        }}
       />
       
-      {view === 'landing' ? (
-        <LandingPage onSearch={handleSearch} />
-      ) : (
-        vibeData && <ResultsPage vibeData={vibeData} onVibeClick={handleVibeClick} />
-      )}
-    </div>
+      <div className="relative z-10 w-full max-w-[640px] flex flex-col items-center gap-6">
+        <span className="text-xs font-mono text-[#666] tracking-wide">
+          {"what's your vibe right now?"}
+        </span>
+        
+        <SearchBar onSearch={onSearch} />
+        
+        <TrendingTags tags={trendingTags} onTagClick={onSearch} />
+      </div>
+    </main>
   )
 }
