@@ -18,3 +18,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: mode-vibe
       
+directory: .next
