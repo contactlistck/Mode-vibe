@@ -11,36 +11,38 @@ interface LandingPageProps {
 export function LandingPage({ onSearch }: LandingPageProps) {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
-      {/* Purple glow - top right - larger and more visible */}
+      {/* Lime glow - bottom left */}
       <div 
-        className="absolute top-[-100px] right-[-100px] w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full pointer-events-none animate-float-slow"
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{ 
-          background: 'radial-gradient(circle, rgba(140, 100, 255, 0.5) 0%, rgba(140, 100, 255, 0.2) 40%, transparent 70%)',
-          filter: 'blur(60px)',
+          background: 'rgba(159, 232, 112, 0.12)',
+          filter: 'blur(120px)',
+          transform: 'translate(-30%, 30%)'
         }}
       />
       
-      {/* Lime glow - bottom left - larger and more visible */}
+      {/* Purple glow - top right */}
       <div 
-        className="absolute bottom-[-150px] left-[-150px] w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full pointer-events-none animate-float-slow-reverse"
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{ 
-          background: 'radial-gradient(circle, rgba(159, 232, 112, 0.5) 0%, rgba(159, 232, 112, 0.2) 40%, transparent 70%)',
-          filter: 'blur(60px)',
+          background: 'rgba(120, 80, 255, 0.10)',
+          filter: 'blur(120px)',
+          transform: 'translate(30%, -30%)'
         }}
       />
       
-      <div className="relative z-10 w-full max-w-[640px] flex flex-col items-center gap-5">
-        <span className="text-sm font-mono text-[#888] tracking-wide">
+      <div className="relative z-10 w-full max-w-[640px] flex flex-col items-center gap-6">
+        <span className="text-xs font-mono text-[#666] tracking-wide">
           {"what's your vibe right now?"}
         </span>
         
         <SearchBar onSearch={onSearch} />
         
-        <TrendingTags tags={trendingTags} onTagClick={onSearch} />
-        
-        <span className="text-xs font-mono text-[#555] mt-2">
+        <span className="text-xs font-mono text-[#444]">
           6 vibes curated &bull; songs, quotes, images
         </span>
+        
+        <TrendingTags tags={trendingTags} onTagClick={onSearch} />
       </div>
     </main>
   )
