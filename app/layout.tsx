@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Syne, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+
 import './globals.css'
 
 const inter = Inter({ 
@@ -59,7 +59,7 @@ export default function RootLayout({
     <html lang="en" className="bg-[#0A0A0A]">
       <body className={`${inter.variable} ${syne.variable} ${jetbrainsMono.variable} font-sans antialiased bg-[#0A0A0A] text-white`}>
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        
       </body>
     </html>
   )
