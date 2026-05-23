@@ -6,7 +6,7 @@ import { LandingPage } from '@/components/landing-page'
 import { ResultsPage } from '@/components/results-page'
 import { getVibeData, getRandomVibe, VibeData } from '@/lib/mock-data'
 
-export default function Home() {
+export function Home() {
   const [view, setView] = useState<'landing' | 'results'>('landing')
   const [vibeData, setVibeData] = useState<VibeData | null>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
