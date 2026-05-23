@@ -8,9 +8,6 @@ interface VibeHeaderProps {
 export function VibeHeader({ vibeName, quote }: VibeHeaderProps) {
   return (
     <section className="mb-12">
-      <span className="text-xs font-mono uppercase tracking-wider text-[#666] mb-2 block">
-        VIBE HEADER SECTION
-      </span>
       <h1 className="font-[family-name:var(--font-syne)] text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 text-balance">
         {vibeName}
       </h1>
