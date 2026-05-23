@@ -12,9 +12,8 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run build
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: mode-vibe
-          directory: .next
+          command: pages deploy .next --project-name=mode-vibe
