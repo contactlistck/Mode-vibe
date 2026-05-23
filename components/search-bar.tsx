@@ -22,7 +22,7 @@ export function SearchBar({ onSearch }: SearchBarProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setPlaceholderIndex((prev) => (prev + 1) % placeholders.length)
-    }, 3000)
+    }, 3500)
     return () => clearInterval(interval)
   }, [])
 
@@ -40,8 +40,13 @@ export function SearchBar({ onSearch }: SearchBarProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[640px]">
-      <div className="relative">
+    <form onSubmit={handleSubmit} className="w-full max-w-[680px]">
+      <div className="relative group">
+        <div className={`absolute inset-0 rounded-2xl transition-all duration-500 ${
+          isFocused
+            ? 'bg-gradient-to-r from-[#9FE870]/10 via-[#9FE870]/5 to-[#9FE870]/10 blur-xl opacity-100'
+            : 'opacity-0'
+        }`} />
         <input
           type="text"
           value={query}
@@ -50,15 +55,19 @@ export function SearchBar({ onSearch }: SearchBarProps) {
           onBlur={() => setIsFocused(false)}
           onKeyDown={handleKeyDown}
           placeholder={placeholders[placeholderIndex]}
-          className={`w-full px-5 py-4 bg-white/5 border rounded-xl text-white placeholder:text-[#555] focus:outline-none transition-all duration-300 ${
-            isFocused 
-              ? 'border-[#9FE870]' 
-              : 'border-white/10'
+          className={`relative w-full px-6 md:px-8 py-5 md:py-6 glass rounded-2xl text-base md:text-lg text-white placeholder:text-[#555] focus:outline-none transition-all duration-500 ${
+            isFocused
+              ? 'glass-card border-[#9FE870]/30 shadow-[0_0_40px_rgba(159,232,112,0.15)]'
+              : 'glass-hover'
           }`}
         />
         <button
           type="submit"
-          className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-white/50 hover:text-white transition-colors"
+          className={`absolute right-4 md:right-6 top-1/2 -translate-y-1/2 p-2.5 md:p-3 rounded-xl transition-all duration-300 ${
+            isFocused
+              ? 'text-[#9FE870] bg-white/5'
+              : 'text-white/50 hover:text-white hover:bg-white/5'
+          }`}
           aria-label="Search"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
