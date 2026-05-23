@@ -1,11 +1,17 @@
-import { Song } from '@/components/songs-row'
 import { Image } from '@/components/image-grid'
 import { Quote } from '@/components/quotes-list'
+
+export interface SongData {
+  id: string
+  title: string
+  artist: string
+  youtubeId: string
+}
 
 export interface VibeData {
   name: string
   emotionalQuote: string
-  songs: Song[]
+  songs: SongData[]
   images: Image[]
   quotes: Quote[]
   relatedVibes: string[]
@@ -26,12 +32,12 @@ export const vibeDatabase: Record<string, VibeData> = {
     name: "Sad Night Drive",
     emotionalQuote: "and I still look for you on the highway... (it's 2am)",
     songs: [
-      { id: '1', title: 'Heartbeat', artist: 'Blast', albumArt: 'https://picsum.photos/seed/album1/400/400' },
-      { id: '2', title: 'Sad Night', artist: 'Dlawie Spong', albumArt: 'https://picsum.photos/seed/album2/400/400' },
-      { id: '3', title: 'Song', artist: 'Roveid Editor', albumArt: 'https://picsum.photos/seed/album3/400/400' },
-      { id: '4', title: 'The Mane of Time', artist: 'Simnle', albumArt: 'https://picsum.photos/seed/album4/400/400' },
-      { id: '5', title: 'Midnight Echoes', artist: 'Drift', albumArt: 'https://picsum.photos/seed/album5/400/400' },
-      { id: '6', title: 'Empty Roads', artist: 'Neon Tears', albumArt: 'https://picsum.photos/seed/album6/400/400' },
+      { id: '1', title: 'Heartbeat', artist: 'Childish Gambino', youtubeId: 'dFVxGRekRSg' },
+      { id: '2', title: 'Blinding Lights', artist: 'The Weeknd', youtubeId: '4NRXx6U8ABQ' },
+      { id: '3', title: 'Nightcall', artist: 'Kavinsky', youtubeId: 'MV_3Dpw-BRY' },
+      { id: '4', title: 'Starboy', artist: 'The Weeknd', youtubeId: '34Na4j8AVgA' },
+      { id: '5', title: 'Midnight City', artist: 'M83', youtubeId: 'dX3k_QDnzHE' },
+      { id: '6', title: 'A Real Hero', artist: 'College', youtubeId: '-DSVDcw6iW8' },
     ],
     images: [
       { id: '1', url: 'https://picsum.photos/seed/vibe1/600/800', alt: 'Foggy road at night' },
@@ -53,11 +59,11 @@ export const vibeDatabase: Record<string, VibeData> = {
     name: "Heartbreak Hotel",
     emotionalQuote: "loving you was the most beautiful mistake I ever made",
     songs: [
-      { id: '1', title: 'Someone Like You', artist: 'Adele', albumArt: 'https://picsum.photos/seed/hb1/400/400' },
-      { id: '2', title: 'All Too Well', artist: 'Taylor Swift', albumArt: 'https://picsum.photos/seed/hb2/400/400' },
-      { id: '3', title: 'Back to December', artist: 'Taylor Swift', albumArt: 'https://picsum.photos/seed/hb3/400/400' },
-      { id: '4', title: 'The Night We Met', artist: 'Lord Huron', albumArt: 'https://picsum.photos/seed/hb4/400/400' },
-      { id: '5', title: 'Dancing On My Own', artist: 'Robyn', albumArt: 'https://picsum.photos/seed/hb5/400/400' },
+      { id: '1', title: 'Someone Like You', artist: 'Adele', youtubeId: 'hLQl3WQQoQ0' },
+      { id: '2', title: 'All Too Well', artist: 'Taylor Swift', youtubeId: 'tollGa3S0o8' },
+      { id: '3', title: 'Back to December', artist: 'Taylor Swift', youtubeId: 'QUwxKWT6m7U' },
+      { id: '4', title: 'The Night We Met', artist: 'Lord Huron', youtubeId: 'KtlgYxa6BMU' },
+      { id: '5', title: 'Dancing On My Own', artist: 'Robyn', youtubeId: 'CcNo07Xp8aQ' },
     ],
     images: [
       { id: '1', url: 'https://picsum.photos/seed/heart1/600/800', alt: 'Broken heart imagery' },
@@ -79,11 +85,11 @@ export const vibeDatabase: Record<string, VibeData> = {
     name: "Rainy Day Vibes",
     emotionalQuote: "the sky is crying so I don't have to",
     songs: [
-      { id: '1', title: 'Riders on the Storm', artist: 'The Doors', albumArt: 'https://picsum.photos/seed/rain1/400/400' },
-      { id: '2', title: 'Purple Rain', artist: 'Prince', albumArt: 'https://picsum.photos/seed/rain2/400/400' },
-      { id: '3', title: 'Only Happy When It Rains', artist: 'Garbage', albumArt: 'https://picsum.photos/seed/rain3/400/400' },
-      { id: '4', title: 'November Rain', artist: 'Guns N Roses', albumArt: 'https://picsum.photos/seed/rain4/400/400' },
-      { id: '5', title: 'Here Comes the Rain Again', artist: 'Eurythmics', albumArt: 'https://picsum.photos/seed/rain5/400/400' },
+      { id: '1', title: 'Riders on the Storm', artist: 'The Doors', youtubeId: 'iv8GW1GaoIc' },
+      { id: '2', title: 'Purple Rain', artist: 'Prince', youtubeId: 'TvnYmWpD_T8' },
+      { id: '3', title: 'Only Happy When It Rains', artist: 'Garbage', youtubeId: 'esEdC0c3YI4' },
+      { id: '4', title: 'November Rain', artist: 'Guns N Roses', youtubeId: '8SbUC-UaAxE' },
+      { id: '5', title: 'Here Comes the Rain Again', artist: 'Eurythmics', youtubeId: 'TzFnYcIqj6I' },
     ],
     images: [
       { id: '1', url: 'https://picsum.photos/seed/rainy1/600/800', alt: 'Rain on window' },
@@ -105,11 +111,11 @@ export const vibeDatabase: Record<string, VibeData> = {
     name: "3AM Thoughts",
     emotionalQuote: "it's the hour when demons and angels fight over your pillow",
     songs: [
-      { id: '1', title: '3AM', artist: 'Matchbox Twenty', albumArt: 'https://picsum.photos/seed/3am1/400/400' },
-      { id: '2', title: 'Late Night Feelings', artist: 'Mark Ronson', albumArt: 'https://picsum.photos/seed/3am2/400/400' },
-      { id: '3', title: 'Midnight City', artist: 'M83', albumArt: 'https://picsum.photos/seed/3am3/400/400' },
-      { id: '4', title: 'After Hours', artist: 'The Weeknd', albumArt: 'https://picsum.photos/seed/3am4/400/400' },
-      { id: '5', title: 'Insomnia', artist: 'Faithless', albumArt: 'https://picsum.photos/seed/3am5/400/400' },
+      { id: '1', title: '3AM', artist: 'Matchbox Twenty', youtubeId: 'C-Naa1HXeDQ' },
+      { id: '2', title: 'Late Night Feelings', artist: 'Mark Ronson', youtubeId: 'oWYp1xRPH5g' },
+      { id: '3', title: 'Midnight City', artist: 'M83', youtubeId: 'dX3k_QDnzHE' },
+      { id: '4', title: 'After Hours', artist: 'The Weeknd', youtubeId: 'ygTZZpVkmKg' },
+      { id: '5', title: 'Insomnia', artist: 'Faithless', youtubeId: 'P8JEm4d6Wu4' },
     ],
     images: [
       { id: '1', url: 'https://picsum.photos/seed/night1/600/800', alt: 'City at night' },
@@ -131,11 +137,11 @@ export const vibeDatabase: Record<string, VibeData> = {
     name: "Gym Beast Mode",
     emotionalQuote: "pain is temporary, pride is forever",
     songs: [
-      { id: '1', title: 'Lose Yourself', artist: 'Eminem', albumArt: 'https://picsum.photos/seed/gym1/400/400' },
-      { id: '2', title: 'Eye of the Tiger', artist: 'Survivor', albumArt: 'https://picsum.photos/seed/gym2/400/400' },
-      { id: '3', title: 'Stronger', artist: 'Kanye West', albumArt: 'https://picsum.photos/seed/gym3/400/400' },
-      { id: '4', title: 'Till I Collapse', artist: 'Eminem', albumArt: 'https://picsum.photos/seed/gym4/400/400' },
-      { id: '5', title: 'Power', artist: 'Kanye West', albumArt: 'https://picsum.photos/seed/gym5/400/400' },
+      { id: '1', title: 'Lose Yourself', artist: 'Eminem', youtubeId: '_Yhyp-_hX2s' },
+      { id: '2', title: 'Eye of the Tiger', artist: 'Survivor', youtubeId: 'btPJPFnesV4' },
+      { id: '3', title: 'Stronger', artist: 'Kanye West', youtubeId: 'PsO6ZnUZI0g' },
+      { id: '4', title: 'Till I Collapse', artist: 'Eminem', youtubeId: 'ytQ5CYE1VZw' },
+      { id: '5', title: 'Power', artist: 'Kanye West', youtubeId: 'L53gjP-TtGE' },
     ],
     images: [
       { id: '1', url: 'https://picsum.photos/seed/fit1/600/800', alt: 'Gym equipment' },
@@ -157,11 +163,11 @@ export const vibeDatabase: Record<string, VibeData> = {
     name: "Lonely Night",
     emotionalQuote: "sometimes the most crowded places feel the most empty",
     songs: [
-      { id: '1', title: 'Lonely', artist: 'Akon', albumArt: 'https://picsum.photos/seed/lone1/400/400' },
-      { id: '2', title: 'Mad World', artist: 'Gary Jules', albumArt: 'https://picsum.photos/seed/lone2/400/400' },
-      { id: '3', title: 'Creep', artist: 'Radiohead', albumArt: 'https://picsum.photos/seed/lone3/400/400' },
-      { id: '4', title: 'Everybody Hurts', artist: 'R.E.M.', albumArt: 'https://picsum.photos/seed/lone4/400/400' },
-      { id: '5', title: 'Hurt', artist: 'Johnny Cash', albumArt: 'https://picsum.photos/seed/lone5/400/400' },
+      { id: '1', title: 'Lonely', artist: 'Akon', youtubeId: '6EEW-9NDM5k' },
+      { id: '2', title: 'Mad World', artist: 'Gary Jules', youtubeId: '4N3N1MlvVc4' },
+      { id: '3', title: 'Creep', artist: 'Radiohead', youtubeId: 'XFkzRNyygfk' },
+      { id: '4', title: 'Everybody Hurts', artist: 'R.E.M.', youtubeId: '5rOiW_xY-kc' },
+      { id: '5', title: 'Hurt', artist: 'Johnny Cash', youtubeId: '8AHCfZTRGiI' },
     ],
     images: [
       { id: '1', url: 'https://picsum.photos/seed/lonely1/600/800', alt: 'Empty room' },

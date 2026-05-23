@@ -50,10 +50,15 @@ export function SearchBar({ onSearch }: SearchBarProps) {
           onBlur={() => setIsFocused(false)}
           onKeyDown={handleKeyDown}
           placeholder={placeholders[placeholderIndex]}
-          className={`w-full px-5 py-4 bg-white/5 border rounded-xl text-white placeholder:text-[#555] focus:outline-none transition-all duration-300 ${
+          style={{
+            background: 'rgba(255, 255, 255, 0.06)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
+          className={`w-full px-5 py-4 border rounded-xl text-white placeholder:text-[#555] focus:outline-none transition-all duration-300 ${
             isFocused 
               ? 'border-[#9FE870]' 
-              : 'border-white/10'
+              : 'border-white/12'
           }`}
         />
         <button

@@ -1,14 +1,9 @@
 'use client'
 
-export interface Song {
-  id: string
-  title: string
-  artist: string
-  albumArt: string
-}
+import { SongData } from '@/lib/mock-data'
 
 interface SongsRowProps {
-  songs: Song[]
+  songs: SongData[]
 }
 
 export function SongsRow({ songs }: SongsRowProps) {
@@ -22,18 +17,23 @@ export function SongsRow({ songs }: SongsRowProps) {
         {songs.map((song) => (
           <div
             key={song.id}
-            className="flex-shrink-0 w-[160px] group cursor-pointer"
+            className="flex-shrink-0 w-[280px] group"
           >
-            <div className="relative aspect-square mb-3 overflow-hidden rounded-xl bg-white/5 border border-white/7">
-              <img
-                src={song.albumArt}
-                alt={`${song.title} album art`}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                crossOrigin="anonymous"
+            <div className="overflow-hidden rounded-xl bg-white/5 border border-white/7">
+              <iframe
+                width="100%"
+                height="180"
+                src={`https://www.youtube.com/embed/${song.youtubeId}`}
+                frameBorder="0"
+                allowFullScreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                className="block"
               />
+              <div className="p-3">
+                <h3 className="text-sm font-medium text-white truncate">{song.title}</h3>
+                <p className="text-xs text-[#888] truncate">{song.artist}</p>
+              </div>
             </div>
-            <h3 className="text-sm font-medium text-white truncate">{song.title}</h3>
-            <p className="text-xs text-[#888] truncate">{song.artist}</p>
           </div>
         ))}
       </div>
